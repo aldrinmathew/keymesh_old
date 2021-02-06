@@ -197,7 +197,7 @@ class KeymeshPanel(bpy.types.Panel):
     bl_region_type = "UI"
  
     def draw(self, context):
-        self.layout.operator("object.keyframe_mesh", text="Keyfame Mesh")
+        self.layout.operator("object.keyframe_mesh", text="Keyframe Mesh")
         self.layout.operator("object.purge_keymesh_data", text="Purge Keymesh Data")
                 
            
