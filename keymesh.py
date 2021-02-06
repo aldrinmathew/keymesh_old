@@ -76,12 +76,12 @@ def keymesh_insert_keyframe(object):
         for kf in fcurve.keyframe_points:
             kf.interpolation = "CONSTANT"
 
-    bpy.app.handlers.frame_change_pre.clear()
-    bpy.app.handlers.frame_change_pre.append(updateKeymesh)
+    bpy.app.handlers.frame_change_post.clear()
+    bpy.app.handlers.frame_change_post.append(updateKeymesh)
 
 
 class KeyframeMesh(bpy.types.Operator):
-    """Tooltip"""
+    """Ctrl Shift A"""
 
     bl_idname = "object.keyframe_mesh"
     bl_label = "Keyframe Mesh"
@@ -130,7 +130,7 @@ def updateKeymesh(scene):
 
 
 class PurgeKeymeshData(bpy.types.Operator):
-    """Tooltip"""
+    """Delete all unused Keymesh Data"""
 
     bl_idname = "object.purge_keymesh_data"
     bl_label = "Purge Keymesh Data"
@@ -200,7 +200,7 @@ class KeymeshPanel(bpy.types.Panel):
     def draw(self, context):
         column = self.layout.column()
         column.scale_y = 1.5
-        column.label(text="Add Keyframe (Ctrl Shift Q)")
+        column.label(text="Add Keyframe (Ctrl Shift A)")
         column.operator("object.keyframe_mesh", text="Keyframe Mesh")
         self.layout.label(text = "Delete all unused Keymesh Data")
         self.layout.operator("object.purge_keymesh_data", text="Purge Keymesh Data")
@@ -220,7 +220,7 @@ def register():
     if keyConfig:
         keyMapView = keyConfig.keymaps.new(name="3D View", space_type="VIEW_3D")
         keyMapItem = keyMapView.keymap_items.new(
-            "object.keyframe_mesh", type="Q", value="PRESS", shift=True, ctrl=True
+            "object.keyframe_mesh", type="A", value="PRESS", shift=True, ctrl=True
         )
         addon_keymaps.append((keyMapView, keyMapItem))
 
