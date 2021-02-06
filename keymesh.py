@@ -3,7 +3,7 @@ import re
 
 bl_info = {
     "name": "Keymesh Alpha",
-    "author": "Pablo Dobarro (Developer), Daniel Martinez Lara (Animation and Testing), Aldrin Mathew (Shortcut Implementation only)",
+    "author": "Pablo Dobarro (Developer), Daniel Martinez Lara (Animation and Testing), Aldrin Mathew (Shortcut)",
     "version": (0, 1, 1),
     "blender": (2, 91, 0),
     "location": "Sidebar > KeyMesh",
@@ -198,7 +198,11 @@ class KeymeshPanel(bpy.types.Panel):
     bl_region_type = "UI"
 
     def draw(self, context):
-        self.layout.operator("object.keyframe_mesh", text="Keyframe Mesh")
+        column = self.layout.column()
+        column.scale_y = 1.5
+        column.label(text="Add Keyframe (Ctrl Shift Q)")
+        column.operator("object.keyframe_mesh", text="Keyframe Mesh")
+        self.layout.label(text = "Delete all unused Keymesh Data")
         self.layout.operator("object.purge_keymesh_data", text="Purge Keymesh Data")
 
 
