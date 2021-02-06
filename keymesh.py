@@ -9,7 +9,9 @@ bl_info = {
     "location": "Sidebar > KeyMesh",
     "warning": "Experimental",
     "category": "Object",
-    "doc_url": "https://www.youtube.com/watch?v=vlNsvL30TmE&feature=youtu.be",
+    "description": "This addon helps in improving your Stop Motion animation workflow. You can use the button in the Sidebar, or press Ctrl Shift A after selecting a mesh to add a keyframe to it.",
+    "doc_url": "https://vimeo.com/506765863",
+    # "doc_url": "https://www.youtube.com/watch?v=vlNsvL30TmE&feature=youtu.be",
 }
 
 
@@ -81,7 +83,7 @@ def keymesh_insert_keyframe(object):
 
 
 class KeyframeMesh(bpy.types.Operator):
-    """Ctrl Shift A"""
+    """Adds a Keyframe to the mesh, after which you can edit the mesh to keep the changes."""
 
     bl_idname = "object.keyframe_mesh"
     bl_label = "Keyframe Mesh"
@@ -192,17 +194,18 @@ class PurgeKeymeshData(bpy.types.Operator):
 
 class KeymeshPanel(bpy.types.Panel):
     bl_idname = "panel.keymesh_panel"
-    bl_label = "Keymesh"
+    bl_label = "Keymesh v0.1.1 Alpha"
     bl_category = "Keymesh"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
 
     def draw(self, context):
+
         column = self.layout.column()
         column.scale_y = 1.5
         column.label(text="Add Keyframe (Ctrl Shift A)")
         column.operator("object.keyframe_mesh", text="Keyframe Mesh")
-        self.layout.label(text = "Delete all unused Keymesh Data")
+        self.layout.label(text="Delete all unused Keymesh Data")
         self.layout.operator("object.purge_keymesh_data", text="Purge Keymesh Data")
 
 
