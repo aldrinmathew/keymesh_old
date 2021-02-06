@@ -9,6 +9,7 @@ This clone was made because the official repository of Keymesh was not available
 My changes so far:
 1. Added the Python file outside the ZIP file for easier collaboration.
 2. Corrected spelling of button from "Keyfame Mesh" to "Keyframe Mesh"
+3. Added Shortcut `Ctrl Shift Q` to add a keyframe for the selected mesh, for faster workflows.
 
 ## Documentation
 
