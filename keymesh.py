@@ -3,13 +3,13 @@ import re
 
 bl_info = {
     "name": "Keymesh Alpha",
-    "author": "Pablo Dobarro (Developer), Daniel Martinez Lara (Animation and Testing), Aldrin Mathew (Shortcut)",
-    "version": (0, 1, 1),
+    "author": "Pablo Dobarro (Developer), Daniel Martinez Lara (Animation and Testing), Aldrin Mathew (Shortcut, Undo)",
+    "version": (0, 1, 2),
     "blender": (2, 91, 0),
     "location": "Sidebar > KeyMesh",
     "warning": "Experimental",
     "category": "Object",
-    "description": "This addon helps in improving your Stop Motion animation workflow. You can use the button in the Sidebar, or press Ctrl Shift A after selecting a mesh to add a keyframe to it.",
+    "description": "This addon helps in improving your Stop Motion animation workflow. Use Ctrl Shift A for faster workflows.",
     "doc_url": "https://vimeo.com/506765863",
     # "doc_url": "https://www.youtube.com/watch?v=vlNsvL30TmE&feature=youtu.be",
 }
@@ -33,7 +33,7 @@ def object_next_available_keyframe_index(ob):
     object_keymesh_id = ob["km_id"]
 
     max_index = 0
-    object_name_full = ob.name_full
+    # object_name_full = ob.name_full
     for mesh in bpy.data.meshes:
         if mesh.get("km_id") is None:
             continue
@@ -54,6 +54,7 @@ def keymesh_insert_keyframe_ex(object, keymesh_frame_index):
         object["km_id"] = next_available_keymesh_object_id()
     object_keymesh_id = object["km_id"]
 
+    bpy.ops.ed.undo_push()
     new_mesh = bpy.data.meshes.new_from_object(object)
     ob_name_full = object.name_full
     new_mesh_name = ob_name_full + "_km" + str(keymesh_frame_index)
@@ -87,6 +88,7 @@ class KeyframeMesh(bpy.types.Operator):
 
     bl_idname = "object.keyframe_mesh"
     bl_label = "Keyframe Mesh"
+    bl_options = {'REGISTER', 'UNDO'}
 
     @classmethod
     def poll(cls, context):
@@ -136,6 +138,7 @@ class PurgeKeymeshData(bpy.types.Operator):
 
     bl_idname = "object.purge_keymesh_data"
     bl_label = "Purge Keymesh Data"
+    bl_options = {'REGISTER', 'UNDO'}
 
     @classmethod
     def poll(cls, context):
@@ -194,7 +197,7 @@ class PurgeKeymeshData(bpy.types.Operator):
 
 class KeymeshPanel(bpy.types.Panel):
     bl_idname = "panel.keymesh_panel"
-    bl_label = "Keymesh v0.1.1 Alpha"
+    bl_label = "Keymesh v0.1.2 Alpha"
     bl_category = "Keymesh"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
