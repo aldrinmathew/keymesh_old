@@ -13,6 +13,6 @@ My changes so far:
 
 ## Documentation
 
-Visit: https://www.youtube.com/watch?v=vlNsvL30TmE&feature=youtu.be
+Visit: https://vimeo.com/506765863
 
 It's currently a private video. I am attaching the link found in the addon file.
