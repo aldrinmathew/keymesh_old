@@ -1,7 +1,25 @@
 # Keymesh Addon for Blender
 
-The Keymesh project currenty has a Github repository at: https://github.com/pablodp606/keymesh-addon/
-This is a clone of the Keymesh Addon repository on Gitlab at: https://gitlab.com/pepe-school-land/keymesh with some minor additions.
+> The **Keymesh** Addon is officially hosted and maintained at: https://github.com/pablodp606/keymesh-addon/
+
+**This project is deprecated. All further contributions should be made in the above link. There will no more be any development in this repository.** I did receive permission from Daniel Martinez Lara to keep a separate repository, but I think it is better if the changes are made in the official repo by Pablo Dobarro.
+
+Update from ***Daniel Martinez Lara***:
+
+```
+Hi Aldrin!
+
+Yes, there is a room for a lot of improvements so
+feel free to make your own repository and changes
+that you want and share with the community if you
+want.
+...
+...
+
+Daniel
+```
+
+This was a clone of the Keymesh Addon repository on Gitlab at: https://gitlab.com/pepe-school-land/keymesh with some minor additions.
 
 Pablo Dobarro @pablodp606 is the Developer of this addon. Daniel Martinez does all the Animation and Testing of the addon.
 
